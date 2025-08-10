@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crescentshire</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Uncial+Antiqua&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-solid-straight/css/uicons-solid-straight.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Enhanced Landing Screen -->
+    <div id="landing-screen" class="landing-screen">
+        <div class="portal-container"> 
+            <!-- Enhanced Flame Border Animation --> 
+            <div class="flame-border"></div> 
+            
+            <!-- Magical Particles Background --> 
+            <div class="particles-container"> 
+                <div class="particle"></div> 
+                <div class="particle"></div> 
+                <div class="particle"></div> 
+                <div class="particle"></div> 
+                <div class="particle"></div> 
+            </div> 
+            
+            <!-- Main Content --> 
+            <div class="portal-content"> 
+                <div class="enter-button-container"> 
+                    <button class="enter-button" id="enter-btn"> 
+                        <span class="rune-text">ENTER</span> 
+                        <div class="button-glow"></div> 
+                        <div class="sparks"> 
+                            <div class="spark"></div> 
+                            <div class="spark"></div> 
+                            <div class="spark"></div> 
+                            <div class="spark"></div> 
+                        </div> 
+                    </button> 
+                </div> 
+            </div> 
+            
+            <!-- Enhanced Burst Effect Container --> 
+            <div class="burst-container" id="burstContainer"> 
+                <div class="fire-burst"></div> 
+                <div class="magical-particles"> 
+                    <div class="magic-particle"></div> 
+                    <div class="magic-particle"></div> 
+                    <div class="magic-particle"></div> 
+                    <div class="magic-particle"></div> 
+                    <div class="magic-particle"></div> 
+                    <div class="magic-particle"></div> 
+                </div> 
+            </div> 
+        </div>
+    </div>
+
+    <!-- Home Page -->
+    <div id="home-page" class="home-page hidden">
+        <div class="map-container" id="map-container">
+            <div class="map-wrapper" id="map-wrapper">
+                <img src="assets/home-map (1).png" alt="Fantasy Map" class="fantasy-map" id="fantasy-map">
+                
+                <!-- Pinpoints -->
+                <div class="pinpoint socials" data-realm="socials" data-label="Socials" style="top: 20%; left: 70%;">
+                    <div class="pin-glow"></div>
+                    <div class="pin-icon"><i class="fi fi-ss-share"></i></div>
+                    <div class="pin-label">Socials</div>
+                </div>
+                
+                <div class="pinpoint shop" data-realm="shop" data-label="Shop" style="top: 60%; left: 82%;">
+                    <div class="pin-glow"></div>
+                    <div class="pin-icon"><i class="fi fi-ss-shopping-bag"></i></div>
+                    <div class="pin-label">Shop</div>
+                </div>
+                
+                <div class="pinpoint cendrial" data-realm="cendrial" data-label="Cendrial" style="top: 37%; left: 37%;">
+                    <div class="pin-glow"></div>
+                    <div class="pin-icon"><i class="fi fi-ss-crystal-ball"></i></div>
+                    <div class="pin-label">Cendrial</div>
+                </div>
+                
+                <div class="pinpoint queensrealm" data-realm="queensrealm" data-label="Queensrealm" style="top: 30%; left: 58%;">
+                    <div class="pin-glow"></div>
+                    <div class="pin-icon"><i class="fi fi-ss-crown"></i></div>
+                    <div class="pin-label">Queensrealm</div>
+                </div>
+                
+                <div class="pinpoint dragonrealm" data-realm="dragonrealm" data-label="Dragonrealm" style="top: 75%; left: 20%;">
+                    <div class="pin-glow"></div>
+                    <div class="pin-icon"><i class="fi fi-ss-dragon"></i></div>
+                    <div class="pin-label">Dragonrealm</div>
+                </div>
+                
+                <div class="pinpoint author" data-realm="author" data-label="R.K. Osborn" style="top: 15%; left: 15%;">
+                    <div class="pin-glow"></div>
+                    <div class="pin-icon"><i class="fi fi-ss-quill-pen-story"></i></div>
+                    <div class="pin-label">R.K. Osborn</div>
+                </div>
+                
+                <div class="pinpoint news" data-realm="news" data-label="News" style="top: 58%; left: 60%;">
+                    <div class="pin-glow"></div>
+                    <div class="pin-icon"><i class="fi fi-ss-newspaper"></i></div>
+                    <div class="pin-label">News</div>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-controls">
+            <div class="zoom-controls">
+                <button id="zoom-in">+</button>
+                <button id="zoom-out">−</button>
+            </div>
+            <div class="pan-controls">
+                <button id="pan-up">↑</button>
+                <div>
+                    <button id="pan-left">←</button>
+                    <button id="pan-right">→</button>
+                </div>
+                <button id="pan-down">↓</button>
+            </div>
+            <div class="toggle-controls">
+                <button id="toggle-breadcrumb" title="Toggle Breadcrumb"><i class="fas fa-map"></i></button>
+                <button id="toggle-return" title="Toggle Return Button"><i class="fas fa-home"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/panzoom@9.4.3/dist/panzoom.min.js"></script>
+    <!-- Replace the js folder imports with single script -->
+    <script src="script.js"></script>
+</body>
+</html>

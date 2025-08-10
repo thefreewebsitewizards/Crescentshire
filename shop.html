@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crescentshire - Shop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Uncial+Antiqua&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-solid-straight/css/uicons-solid-straight.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Shop-specific styles */
+        body {
+            overflow-y: auto;
+            background-color: #000000; /* Black */
+            color: #E6E8FA; /* Pearl */
+            padding-top: 70px; /* Add padding to account for the fixed navbar height */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .section {
+            margin-bottom: 60px;
+            min-height: calc(100vh - 70px); /* Full viewport height minus navbar padding */
+        }
+
+        /* Navigation Bar */
+        .shop-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to bottom, #1C1C1C, #000000); /* Black gradient */
+            border-bottom: 2px solid #C0C0C0; /* Silver */
+            box-shadow: 0 2px 15px rgba(192, 192, 192, 0.5); /* Silver shadow */
+            z-index: 1000;
+            height: 70px;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+            height: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .nav-logo {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #FFD700; /* Gold */
+            text-decoration: none;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5); /* Gold shadow */
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #E6E8FA; /* Pearl */
+            text-decoration: none;
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 1.1rem;
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 5px 0;
+        }
+
+        .nav-links a:hover {
+            color: #FFD700; /* Gold */
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.6); /* Gold shadow */
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #FFD700, transparent); /* Gold gradient */
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+        }
+
+        .hamburger span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: #E6E8FA; /* Pearl */
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Banner */
+        .hero-banner {
+            height: 60vh;
+            background-image: url('assets/hero.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 50px;
+        }
+
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6); /* Darker overlay */
+        }
+
+        .hero-content {
+            position: relative;
+            text-align: center;
+            z-index: 1;
+            padding: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: #FFD700; /* Gold */
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #fff;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Shop Sections */
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #FFD700; /* Gold */
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3); /* Gold shadow */
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, transparent, #FFD700, transparent); /* Gold gradient */
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: linear-gradient(to bottom, #1C1C1C, #000000); /* Black gradient */
+            border: 1px solid #C0C0C0; /* Silver */
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(192, 192, 192, 0.3); /* Silver shadow */
+        }
+
+        .product-image {
+            height: 250px;
+            background-color: #1C1C1C; /* Darker Black */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .product-image i {
+            font-size: 5rem;
+            color: #C0C0C0; /* Silver */
+        }
+
+        .product-details {
+            padding: 20px;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #FFD700; /* Gold */
+        }
+
+        .product-price {
+            font-size: 1.1rem;
+            color: #E6E8FA; /* Pearl */
+            margin-bottom: 15px;
+        }
+
+        .product-description {
+            font-size: 0.9rem;
+            color: #C0C0C0; /* Silver */
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .add-to-cart {
+            background: linear-gradient(to right, #9966CC, #7851A9); /* Amethyst gradient */
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Cinzel Decorative', serif;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .add-to-cart:hover {
+            background: linear-gradient(to right, #7851A9, #9966CC); /* Reversed Amethyst gradient */
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.5); /* Gold shadow */
+        }
+
+        /* Cart Styles */
+        .cart-section {
+            background: linear-gradient(to bottom, #1C1C1C, #000000); /* Black gradient */
+            border: 1px solid #C0C0C0; /* Silver */
+            border-radius: 10px;
+            padding: 30px;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #C0C0C0; /* Silver */
+        }
+
+        .cart-items {
+            margin-bottom: 30px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #1C1C1C; /* Darker Black */
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #C0C0C0; /* Silver */
+        }
+
+        .checkout-btn {
+            background: linear-gradient(to right, #50C878, #3CB371); /* Emerald gradient */
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .checkout-btn:hover {
+            background: linear-gradient(to right, #3CB371, #50C878); /* Reversed Emerald gradient */
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.6); /* Gold shadow */
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 40px 0;
+            color: #C0C0C0; /* Silver */
+        }
+
+        .empty-cart i {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: #C0C0C0; /* Silver */
+        }
+
+        /* Exit Icon */
+        .exit-icon {
+            color: #E6E8FA; /* Pearl */
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+        }
+
+        .exit-icon:hover {
+            color: #FFD700; /* Gold */
+            transform: scale(1.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 15px;
+            }
+
+            .nav-logo {
+                font-size: 1.5rem;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                width: 250px;
+                height: calc(100vh - 70px);
+                background: linear-gradient(to bottom, #1C1C1C, #000000); /* Black gradient */
+                flex-direction: column;
+                padding: 30px;
+                transition: right 0.3s ease;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+                gap: 20px;
+                align-items: flex-start;
+            }
+
+            .nav-links a {
+                width: 100%;
+                padding: 10px 0;
+                border-bottom: 1px solid #1C1C1C; /* Darker Black */
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: translateY(9px) rotate(45deg);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: translateY(-9px) rotate(-45deg);
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="shop-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Crescentshire</a>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="#books">Books</a>
+                <a href="#ebooks">E-books</a>
+                <a href="#merch">Merch</a>
+                <a href="#cart">Cart</a>
+                <a href="index.html" class="exit-icon"><i class="fas fa-sign-out-alt"></i></a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Hero Banner -->
+        <div class="hero-banner">
+            <div class="hero-content">
+                <h1>Crescentshire Shop</h1>
+                <p>Discover magical items, enchanted books, and exclusive merchandise from the world of Crescentshire.</p>
+            </div>
+        </div>
+
+        <!-- Books Section -->
+        <section id="books" class="section">
+            <h2 class="section-title">Books</h2>
+            <div class="product-grid">
+                <!-- Book 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">The Chronicles of Crescentshire</h3>
+                        <p class="product-price">$24.99</p>
+                        <p class="product-description">The first book in the epic fantasy series. Follow the journey of heroes as they discover the ancient secrets of Crescentshire.</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Book 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">Shadows of Lunas Kingdom</h3>
+                        <p class="product-price">$22.99</p>
+                        <p class="product-description">Delve into the mysteries of Lunas Kingdom and uncover the dark forces threatening the realm.</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Book 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">The Dragon's Prophecy</h3>
+                        <p class="product-price">$26.99</p>
+                        <p class="product-description">An ancient prophecy foretells the return of dragons to Crescentshire. Will the realm survive their awakening?</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- E-books Section -->
+        <section id="ebooks" class="section">
+            <h2 class="section-title">E-books</h2>
+            <div class="product-grid">
+                <!-- E-book 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-tablet-alt"></i>
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">The Chronicles of Crescentshire (Digital)</h3>
+                        <p class="product-price">$14.99</p>
+                        <p class="product-description">Digital edition of the first book in the epic fantasy series. Available in multiple formats.</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- E-book 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-tablet-alt"></i>
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">Shadows of Lunas Kingdom (Digital)</h3>
+                        <p class="product-price">$12.99</p>
+                        <p class="product-description">Digital edition with exclusive bonus content and author's notes.</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- E-book 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-tablet-alt"></i>
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">Tales from the Southern Isles</h3>
+                        <p class="product-price">$9.99</p>
+                        <p class="product-description">A collection of short stories set in the magical Southern Isles of Crescentshire.</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Merchandise Section -->
+        <section id="merch" class="section">
+            <h2 class="section-title">Merchandise</h2>
+            <div class="product-grid">
+                <!-- Merch 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">Crescentshire Map T-Shirt</h3>
+                        <p class="product-price">$29.99</p>
+                        <p class="product-description">Premium quality t-shirt featuring the detailed map of Crescentshire. Available in multiple sizes.</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Merch 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-mug-hot"></i>
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">Enchanted Realm Mug</h3>
+                        <p class="product-price">$19.99</p>
+                        <p class="product-description">Ceramic mug featuring magical symbols from the world of Crescentshire. Changes color when filled with hot liquid!</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Merch 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-hat-wizard"></i>
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">Dragon Realm Pendant</h3>
+                        <p class="product-price">$34.99</p>
+                        <p class="product-description">Handcrafted pendant featuring the Dragon Realm emblem. Made from high-quality materials.</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cart Section -->
+        <section id="cart" class="section">
+            <h2 class="section-title">Your Cart</h2>
+            <div class="cart-section">
+                <div class="cart-header">
+                    <h3>Item</h3>
+                    <h3>Price</h3>
+                </div>
+                <div class="cart-items">
+                    <!-- Empty cart message -->
+                    <div class="empty-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <p>Your cart is empty</p>
+                    </div>
+                </div>
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span>$0.00</span>
+                </div>
+                <button class="checkout-btn">Proceed to Checkout</button>
+            </div>
+        </section>
+    </div>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Toggle mobile menu
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    hamburger.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent event from bubbling up
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            console.log('Link clicked:', this.getAttribute('href'));
+            
+            // First handle the menu closing
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+            
+            // Then handle smooth scrolling for anchor links
+            if (this.getAttribute('href').startsWith('#')) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    console.log('Target element found:', targetId);
+                    
+                    // Use a longer delay for mobile to ensure menu is fully closed
+                    setTimeout(() => {
+                        // Get the element's position relative to the viewport
+                        const rect = targetElement.getBoundingClientRect();
+                        // Calculate the absolute position and adjust for navbar
+                        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                        const targetPosition = scrollTop + rect.top - 80; // 80px for navbar
+                        
+                        console.log('Scrolling to position:', targetPosition);
+                        
+                        // Scroll to the target position
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }, 300); // Increased delay from 100ms to 300ms
+                } else {
+                    console.log('Target element not found:', targetId);
+                }
+            }
+        });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (navLinks.classList.contains('active') && 
+            !navLinks.contains(e.target) && 
+            e.target !== hamburger && 
+            !hamburger.contains(e.target)) {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+        }
+    });
+            // Cart functionality
+            let cart = [];
+            const cartItems = document.querySelector('.cart-items');
+            const cartTotal = document.querySelector('.cart-total span:last-child');
+            const emptyCartMessage = document.querySelector('.empty-cart');
+            const checkoutBtn = document.querySelector('.checkout-btn');
+
+            // Load cart from localStorage if available
+            function loadCart() {
+                const savedCart = localStorage.getItem('crescentshireCart');
+                if (savedCart) {
+                    cart = JSON.parse(savedCart);
+                    updateCartDisplay();
+                }
+            }
+
+            // Save cart to localStorage
+            function saveCart() {
+                localStorage.setItem('crescentshireCart', JSON.stringify(cart));
+            }
+
+            // Add item to cart
+            function addToCart(title, price) {
+                // Check if item already exists in cart
+                const existingItem = cart.find(item => item.title === title);
+                
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({
+                        title: title,
+                        price: price,
+                        quantity: 1
+                    });
+                }
+                
+                // Show notification
+                showNotification(`${title} added to cart`);
+                
+                // Update cart display
+                updateCartDisplay();
+                saveCart();
+            }
+
+            // Remove item from cart
+            function removeFromCart(index) {
+                const removedItem = cart[index];
+                cart.splice(index, 1);
+                showNotification(`${removedItem.title} removed from cart`);
+                updateCartDisplay();
+                saveCart();
+            }
+
+            // Update quantity
+            function updateQuantity(index, change) {
+                cart[index].quantity += change;
+                
+                if (cart[index].quantity < 1) {
+                    removeFromCart(index);
+                    return;
+                }
+                
+                updateCartDisplay();
+                saveCart();
+            }
+
+            // Update cart display
+            function updateCartDisplay() {
+                // Calculate total
+                const total = cart.reduce((sum, item) => {
+                    return sum + (parseFloat(item.price) * item.quantity);
+                }, 0);
+                
+                // Update total display
+                cartTotal.textContent = `$${total.toFixed(2)}`;
+                
+                // Show/hide empty cart message
+                if (cart.length === 0) {
+                    emptyCartMessage.style.display = 'block';
+                    checkoutBtn.disabled = true;
+                    checkoutBtn.style.opacity = '0.5';
+                    checkoutBtn.style.cursor = 'not-allowed';
+                } else {
+                    emptyCartMessage.style.display = 'none';
+                    checkoutBtn.disabled = false;
+                    checkoutBtn.style.opacity = '1';
+                    checkoutBtn.style.cursor = 'pointer';
+                }
+                
+                // Generate cart items HTML
+                let cartHTML = '';
+                
+                cart.forEach((item, index) => {
+                    cartHTML += `
+                        <div class="cart-item">
+                            <div class="cart-item-details">
+                                <h4>${item.title}</h4>
+                                <div class="quantity-controls">
+                                    <button class="quantity-btn minus" data-index="${index}">-</button>
+                                    <span class="quantity">${item.quantity}</span>
+                                    <button class="quantity-btn plus" data-index="${index}">+</button>
+                                </div>
+                            </div>
+                            <div class="cart-item-price">
+                                <span>$${(parseFloat(item.price) * item.quantity).toFixed(2)}</span>
+                                <button class="remove-item" data-index="${index}">×</button>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                // Update cart items container
+                if (cart.length > 0) {
+                    cartItems.innerHTML = cartHTML;
+                    
+                    // Add event listeners to quantity buttons
+                    document.querySelectorAll('.quantity-btn.minus').forEach(button => {
+                        button.addEventListener('click', function() {
+                            const index = parseInt(this.getAttribute('data-index'));
+                            updateQuantity(index, -1);
+                        });
+                    });
+                    
+                    document.querySelectorAll('.quantity-btn.plus').forEach(button => {
+                        button.addEventListener('click', function() {
+                            const index = parseInt(this.getAttribute('data-index'));
+                            updateQuantity(index, 1);
+                        });
+                    });
+                    
+                    document.querySelectorAll('.remove-item').forEach(button => {
+                        button.addEventListener('click', function() {
+                            const index = parseInt(this.getAttribute('data-index'));
+                            removeFromCart(index);
+                        });
+                    });
+                } else {
+                    cartItems.innerHTML = `
+                        <div class="empty-cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            <p>Your cart is empty</p>
+                        </div>
+                    `;
+                }
+            }
+
+            // Show notification
+            function showNotification(message) {
+                const notification = document.createElement('div');
+                notification.className = 'notification';
+                notification.textContent = message;
+                
+                // Style the notification
+                notification.style.position = 'fixed';
+                notification.style.top = '20px';
+                notification.style.right = '20px';
+                notification.style.backgroundColor = '#E0115F'; /* Ruby */
+                notification.style.color = '#E6E8FA'; /* Pearl */
+                notification.style.padding = '10px 20px';
+                notification.style.borderRadius = '5px';
+                notification.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.2)';
+                notification.style.zIndex = '9999';
+                notification.style.opacity = '0';
+                notification.style.transform = 'translateY(-20px)';
+                notification.style.transition = 'opacity 0.3s, transform 0.3s';
+                
+                document.body.appendChild(notification);
+                
+                // Show notification with animation
+                setTimeout(() => {
+                    notification.style.opacity = '1';
+                    notification.style.transform = 'translateY(0)';
+                }, 10);
+                
+                // Hide and remove notification after 3 seconds
+                setTimeout(() => {
+                    notification.style.opacity = '0';
+                    notification.style.transform = 'translateY(-20px)';
+                    
+                    setTimeout(() => {
+                        document.body.removeChild(notification);
+                    }, 300);
+                }, 3000);
+            }
+
+            // Process checkout
+            function processCheckout() {
+                if (cart.length === 0) return;
+                
+                // Calculate total
+                const total = cart.reduce((sum, item) => {
+                    return sum + (parseFloat(item.price) * item.quantity);
+                }, 0);
+                
+                // Generate items list
+                let itemsList = '';
+                cart.forEach(item => {
+                    itemsList += `
+                        <div class="checkout-item">
+                            <span>${item.title} × ${item.quantity}</span>
+                            <span>$${(parseFloat(item.price) * item.quantity).toFixed(2)}</span>
+                        </div>
+                    `;
+                });
+                
+                // Create confirmation modal
+                const confirmationModal = document.createElement('div');
+                confirmationModal.className = 'checkout-modal';
+                confirmationModal.innerHTML = `
+                    <div class="checkout-modal-content">
+                        <h3>Confirm Your Order</h3>
+                        <div class="checkout-items">
+                            ${itemsList}
+                        </div>
+                        <div class="checkout-total">
+                            <span>Total:</span>
+                            <span>$${total.toFixed(2)}</span>
+                        </div>
+                        <div class="checkout-actions">
+                            <button class="cancel-btn">Cancel</button>
+                            <button class="confirm-btn">Confirm Order</button>
+                        </div>
+                    </div>
+                `;
+                
+                // Style the modal
+                const modalStyle = document.createElement('style');
+                modalStyle.textContent = `
+                    .checkout-modal {
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-color: rgba(0, 0, 0, 0.7);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        z-index: 9999;
+                    }
+                    .checkout-modal-content {
+                        background: linear-gradient(to bottom, #1C1C1C, #000000); /* Black gradient */
+                        border: 2px solid #C0C0C0; /* Silver */
+                        border-radius: 10px;
+                        padding: 30px;
+                        width: 90%;
+                        max-width: 500px;
+                        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+                    }
+                    .checkout-modal-content h3 {
+                        color: #FFD700; /* Gold */
+                        text-align: center;
+                        margin-bottom: 20px;
+                        font-size: 1.5rem;
+                    }
+                    .checkout-items {
+                        margin-bottom: 20px;
+                        max-height: 300px;
+                        overflow-y: auto;
+                    }
+                    .checkout-item {
+                        display: flex;
+                        justify-content: space-between;
+                        padding: 10px 0;
+                        border-bottom: 1px solid #1C1C1C; /* Darker Black */
+                    }
+                    .checkout-total {
+                        display: flex;
+                        justify-content: space-between;
+                        font-size: 1.2rem;
+                        padding: 15px 0;
+                        border-top: 1px solid #C0C0C0; /* Silver */
+                        margin-top: 10px;
+                        font-weight: bold;
+                        color: #FFD700; /* Gold */
+                    }
+                    .checkout-actions {
+                        display: flex;
+                        justify-content: space-between;
+                        margin-top: 20px;
+                    }
+                    .cancel-btn, .confirm-btn {
+                        padding: 10px 20px;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        font-family: 'Cinzel Decorative', serif;
+                        transition: all 0.3s ease;
+                    }
+                    .cancel-btn {
+                        background-color: #1C1C1C; /* Darker Black */
+                        color: #E6E8FA; /* Pearl */
+                        border: 1px solid #C0C0C0; /* Silver */
+                    }
+                    .cancel-btn:hover {
+                        background-color: #2C2C2C; /* Slightly lighter black */
+                    }
+                    .confirm-btn {
+                        background: linear-gradient(to right, #9966CC, #7851A9); /* Amethyst gradient */
+                        color: #fff;
+                        border: none;
+                    }
+                    .confirm-btn:hover {
+                        background: linear-gradient(to right, #7851A9, #9966CC); /* Reversed Amethyst gradient */
+                        box-shadow: 0 0 10px rgba(255, 215, 0, 0.5); /* Gold shadow */
+                    }
+                `;
+                
+                document.head.appendChild(modalStyle);
+                document.body.appendChild(confirmationModal);
+                
+                // Add event listeners to buttons
+                const cancelBtn = confirmationModal.querySelector('.cancel-btn');
+                const confirmBtn = confirmationModal.querySelector('.confirm-btn');
+                
+                cancelBtn.addEventListener('click', () => {
+                    document.body.removeChild(confirmationModal);
+                });
+                
+                confirmBtn.addEventListener('click', () => {
+                    // Create processing modal
+                    const processingModal = document.createElement('div');
+                    processingModal.className = 'processing-modal';
+                    processingModal.innerHTML = `
+                        <div class="processing-content">
+                            <div class="spinner"></div>
+                            <p>Processing your order...</p>
+                        </div>
+                    `;
+                    
+                    // Style the processing modal
+                    const processingStyle = document.createElement('style');
+                    processingStyle.textContent = `
+                        .processing-modal {
+                            position: fixed;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            background-color: rgba(0, 0, 0, 0.7);
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            z-index: 9999;
+                        }
+                        .processing-content {
+                            text-align: center;
+                            color: #E6E8FA; /* Pearl */
+                        }
+                        .spinner {
+                            width: 50px;
+                            height: 50px;
+                            border: 5px solid #50C878; /* Emerald */
+                            border-top: 5px solid #FFD700; /* Gold */
+                            border-radius: 50%;
+                            margin: 0 auto 20px;
+                            animation: spin 1s linear infinite;
+                        }
+                        @keyframes spin {
+                            0% { transform: rotate(0deg); }
+                            100% { transform: rotate(360deg); }
+                        }
+                    `;
+                    document.head.appendChild(processingStyle);
+                    
+                    document.body.removeChild(confirmationModal);
+                    document.body.appendChild(processingModal);
+                    
+                    // Simulate processing delay
+                    setTimeout(() => {
+                        document.body.removeChild(processingModal);
+                        
+                        // Clear cart
+                        cart = [];
+                        updateCartDisplay();
+                        saveCart();
+                        
+                        // Show success message
+                        showNotification('Order placed successfully!');
+                        
+                        // Scroll to top
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                    }, 2000);
+                });
+            }
+
+            // Add event listeners to all "Add to Cart" buttons
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productCard = this.closest('.product-card');
+                    const title = productCard.querySelector('.product-title').textContent;
+                    const priceText = productCard.querySelector('.product-price').textContent;
+                    const price = priceText.replace('$', '');
+                    
+                    addToCart(title, price);
+                });
+            });
+
+            // Add event listener to checkout button
+            checkoutBtn.addEventListener('click', processCheckout);
+
+            // Load cart on page load
+            loadCart();
+        });
+    </script>
+    
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 20px; background: linear-gradient(to bottom, #1C1C1C, #000000); border-top: 2px solid #C0C0C0; margin-top: 40px; color: #E6E8FA;">
+        Built by <a href="https://thefreewebsitewizards.com/?fbclid=PAZXh0bgNhZW0CMTEAAad0Jm-GNlXnPPJ1LVG1DBVBoUGdRHC5m3FFwUqGHjUfujAnDPDhsINN8mAv1A_aem_owWh2qpkEErFPYCqV9cPEg" target="_blank" style="color: #FFD700; text-decoration: none; font-weight: bold; transition: color 0.3s ease;">The Free Website Wizard</a>
+    </footer>
+</body>
+</html>
