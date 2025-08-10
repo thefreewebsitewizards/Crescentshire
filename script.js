@@ -2602,13 +2602,40 @@ function createLunasRegionPinpoint(regionData) {
     
     pinpoint.appendChild(label);
     
-    // Add click handler
+    // Add touch event support for mobile
+    let touchStartTime = 0;
+    let touchMoved = false;
+    
+    // Touch events for mobile
+    pinpoint.addEventListener('touchstart', (e) => {
+        touchStartTime = Date.now();
+        touchMoved = false;
+        e.stopPropagation();
+    });
+    
+    pinpoint.addEventListener('touchmove', (e) => {
+        touchMoved = true;
+        e.stopPropagation();
+    });
+    
+    pinpoint.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const touchDuration = Date.now() - touchStartTime;
+        if (!touchMoved && touchDuration < 500) {
+            showLunasRegionModal(regionData);
+            createMagicalSparkles(pinpoint);
+        }
+    });
+    
+    // Keep click handler for desktop
     pinpoint.addEventListener('click', () => {
         showLunasRegionModal(regionData);
         createMagicalSparkles(pinpoint);
     });
     
-    // Add hover effects
+    // Add hover effects for desktop
     pinpoint.addEventListener('mouseenter', () => {
         createMagicalSparkles(pinpoint);
         if (typeof gsap !== 'undefined') {
@@ -2718,6 +2745,44 @@ function initializeDetailedPinpointInteractions() {
     const pinpoints = document.querySelectorAll('.pinpoint');
     
     pinpoints.forEach(pin => {
+        // Add touch event support for mobile
+        let touchStartTime = 0;
+        let touchMoved = false;
+        
+        // Touch events for mobile
+        pin.addEventListener('touchstart', (e) => {
+            touchStartTime = Date.now();
+            touchMoved = false;
+            e.stopPropagation(); // Prevent map panning
+        });
+        
+        pin.addEventListener('touchmove', (e) => {
+            touchMoved = true;
+            e.stopPropagation(); // Prevent map panning
+        });
+        
+        pin.addEventListener('touchend', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Only trigger if it was a quick tap (not a long press or drag)
+            const touchDuration = Date.now() - touchStartTime;
+            if (!touchMoved && touchDuration < 500) {
+                const realm = pin.dataset.realm;
+                const label = pin.dataset.label;
+                
+                if (currentLevel === 'second') {
+                    transitionToThirdLevel(realm);
+                } else {
+                    handleMainLevelClick(pin, realm, label);
+                }
+                
+                createMagicalSparkles(pin);
+                createPinpointBurst(pin);
+            }
+        });
+        
+        // Keep click event for desktop
         pin.addEventListener('click', (e) => {
             e.preventDefault();
             
@@ -2734,6 +2799,7 @@ function initializeDetailedPinpointInteractions() {
             createPinpointBurst(pin);
         });
         
+        // Mouse events for desktop hover effects
         pin.addEventListener('mouseenter', () => {
             createMagicalSparkles(pin);
             if (typeof gsap !== 'undefined') {
