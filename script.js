@@ -1352,14 +1352,13 @@ function createRepublicKionaRegionPinpoint(regionData) {
         position: absolute;
         top: ${regionData.position.top};
         left: ${regionData.position.left};
-        width: 20px;
-        height: 20px;
-        background: linear-gradient(45deg, #FF6B35, #FFD700);
-        border: 2px solid #FFD700;
+        width: 20px;        height: 20px;
+        background: linear-gradient(45deg, #50C878, #FFD700);
+        border: 2px solid #000;
         border-radius: 50%;
         cursor: pointer;
         transition: all 0.3s ease;
-        box-shadow: 0 0 15px rgba(255, 107, 53, 0.5);
+        box-shadow: 0 0 15px rgba(80, 200, 120, 0.6);
         z-index: 10;
     `;
     
@@ -1378,7 +1377,7 @@ function createRepublicKionaRegionPinpoint(regionData) {
         border-radius: 4px;
         font-size: 12px;
         white-space: nowrap;
-        font-family: 'Cinzel', serif;
+        font-family: 'Cinzel Decorative', cursive;
         text-shadow: 1px 1px 2px #000;
         border: 1px solid #FFD700;
     `;
