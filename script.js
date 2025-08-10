@@ -557,7 +557,7 @@ function createSocialMediaPopup() {
                     </div>
                     <span>@crescentshire</span>
                 </a>
-                <a href="https://www.facebook.com/profile.php?id=61558488253523&ref=pl_edit_xav_ig_profile_page_web#" target="_blank" class="social-icon-link">
+                <a href="https://www.facebook.com/profile.php?id=61558488253523" target="_blank" class="social-icon-link">
                     <div class="social-icon facebook">
                         <i class="fab fa-facebook-f"></i>
                     </div>
