@@ -1352,7 +1352,8 @@ function createRepublicKionaRegionPinpoint(regionData) {
         position: absolute;
         top: ${regionData.position.top};
         left: ${regionData.position.left};
-        width: 20px;        height: 20px;
+        width: 20px;
+        height: 20px;
         background: linear-gradient(45deg, #50C878, #FFD700);
         border: 2px solid #000;
         border-radius: 50%;
@@ -1372,72 +1373,75 @@ function createRepublicKionaRegionPinpoint(regionData) {
         left: 50%;
         transform: translateX(-50%);
         background: rgba(0, 0, 0, 0.8);
-        color: #FFD700;
+        color: #C0C0C0;
         padding: 4px 8px;
         border-radius: 4px;
         font-size: 12px;
         white-space: nowrap;
-        font-family: 'Cinzel Decorative', cursive;
-        text-shadow: 1px 1px 2px #000;
-        border: 1px solid #FFD700;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        font-family: 'Cormorant Unicase', serif;
+        border: 1px solid #50C878;
     `;
     
     pinpoint.appendChild(label);
     
-    // Touch event handling
-    let touchStartTime = 0;
-    let touchStartPos = { x: 0, y: 0 };
-    let hasMoved = false;
-    
-    // Add touch handlers
+    let touchStartTime;
+    let touchStartX;
+    let touchStartY;
+    let isDragging = false;
+
     pinpoint.addEventListener('touchstart', (e) => {
-        e.stopPropagation();
-        touchStartTime = Date.now();
-        const touch = e.touches[0];
-        touchStartPos = { x: touch.clientX, y: touch.clientY };
-        hasMoved = false;
+        touchStartTime = new Date().getTime();
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+        isDragging = false;
+        e.stopPropagation(); // Prevent map panning from interfering
     });
-    
+
     pinpoint.addEventListener('touchmove', (e) => {
-        e.stopPropagation();
-        const touch = e.touches[0];
-        const deltaX = Math.abs(touch.clientX - touchStartPos.x);
-        const deltaY = Math.abs(touch.clientY - touchStartPos.y);
+        const moveX = e.touches[0].clientX;
+        const moveY = e.touches[0].clientY;
+        const deltaX = Math.abs(moveX - touchStartX);
+        const deltaY = Math.abs(moveY - touchStartY);
+
+        // If the touch moves more than a threshold, consider it a drag
         if (deltaX > 10 || deltaY > 10) {
-            hasMoved = true;
+            isDragging = true;
         }
+        e.stopPropagation(); // Prevent map panning from interfering
     });
-    
+
     pinpoint.addEventListener('touchend', (e) => {
-        e.stopPropagation();
-        e.preventDefault();
-        const touchDuration = Date.now() - touchStartTime;
-        if (!hasMoved && touchDuration < 500) {
+        const touchEndTime = new Date().getTime();
+        const tapDuration = touchEndTime - touchStartTime;
+
+        // If it's a quick tap and not a drag, trigger the modal
+        if (tapDuration < 300 && !isDragging) {
             showRepublicKionaRegionModal(regionData);
             createMagicalSparkles(pinpoint);
         }
+        e.stopPropagation(); // Prevent map panning from interfering
+        e.preventDefault(); // Prevent double-triggering with click event on some devices
     });
-    
-    // Add click handler for desktop
-    pinpoint.addEventListener('click', () => {
+
+    pinpoint.addEventListener('click', (e) => {
+        // This click listener will primarily handle desktop interactions
         showRepublicKionaRegionModal(regionData);
         createMagicalSparkles(pinpoint);
     });
-    
-    // Add hover effects
+
     pinpoint.addEventListener('mouseenter', () => {
-        createMagicalSparkles(pinpoint);
-        if (typeof gsap !== 'undefined') {
-            gsap.to(pinpoint, { scale: 1.3, duration: 0.3, ease: "back.out(1.7)" });
-        }
+        gsap.to(pinpoint, { scale: 1.1, duration: 0.3, ease: 'power2.out' });
+        label.style.opacity = '1';
     });
-    
+
     pinpoint.addEventListener('mouseleave', () => {
-        if (typeof gsap !== 'undefined') {
-            gsap.to(pinpoint, { scale: 1, duration: 0.3, ease: "back.out(1.7)" });
-        }
+        gsap.to(pinpoint, { scale: 1, duration: 0.3, ease: 'power2.out' });
+        label.style.opacity = '0';
     });
-    
+
     return pinpoint;
 }
 
