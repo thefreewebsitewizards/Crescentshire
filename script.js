@@ -1772,7 +1772,41 @@ function createSouthernIslesRegionPinpoint(regionData) {
     
     pinpoint.appendChild(label);
     
-    // Add click handler
+    // Touch event handling
+    let touchStartTime = 0;
+    let touchStartPos = { x: 0, y: 0 };
+    let hasMoved = false;
+    
+    // Add touch handlers
+    pinpoint.addEventListener('touchstart', (e) => {
+        e.stopPropagation();
+        touchStartTime = Date.now();
+        const touch = e.touches[0];
+        touchStartPos = { x: touch.clientX, y: touch.clientY };
+        hasMoved = false;
+    });
+    
+    pinpoint.addEventListener('touchmove', (e) => {
+        e.stopPropagation();
+        const touch = e.touches[0];
+        const deltaX = Math.abs(touch.clientX - touchStartPos.x);
+        const deltaY = Math.abs(touch.clientY - touchStartPos.y);
+        if (deltaX > 10 || deltaY > 10) {
+            hasMoved = true;
+        }
+    });
+    
+    pinpoint.addEventListener('touchend', (e) => {
+        e.stopPropagation();
+        e.preventDefault();
+        const touchDuration = Date.now() - touchStartTime;
+        if (!hasMoved && touchDuration < 500) {
+            showSouthernIslesRegionModal(regionData);
+            createMagicalSparkles(pinpoint);
+        }
+    });
+    
+    // Add click handler for desktop
     pinpoint.addEventListener('click', () => {
         showSouthernIslesRegionModal(regionData);
         createMagicalSparkles(pinpoint);
@@ -2051,7 +2085,41 @@ function createSilmaasRegionPinpoint(regionData) {
     
     pinpoint.appendChild(label);
     
-    // Add click handler
+    // Touch event handling
+    let touchStartTime = 0;
+    let touchStartPos = { x: 0, y: 0 };
+    let hasMoved = false;
+    
+    // Add touch handlers
+    pinpoint.addEventListener('touchstart', (e) => {
+        e.stopPropagation();
+        touchStartTime = Date.now();
+        const touch = e.touches[0];
+        touchStartPos = { x: touch.clientX, y: touch.clientY };
+        hasMoved = false;
+    });
+    
+    pinpoint.addEventListener('touchmove', (e) => {
+        e.stopPropagation();
+        const touch = e.touches[0];
+        const deltaX = Math.abs(touch.clientX - touchStartPos.x);
+        const deltaY = Math.abs(touch.clientY - touchStartPos.y);
+        if (deltaX > 10 || deltaY > 10) {
+            hasMoved = true;
+        }
+    });
+    
+    pinpoint.addEventListener('touchend', (e) => {
+        e.stopPropagation();
+        e.preventDefault();
+        const touchDuration = Date.now() - touchStartTime;
+        if (!hasMoved && touchDuration < 500) {
+            showSilmaasRegionModal(regionData);
+            createMagicalSparkles(pinpoint);
+        }
+    });
+    
+    // Add click handler for desktop
     pinpoint.addEventListener('click', () => {
         showSilmaasRegionModal(regionData);
         createMagicalSparkles(pinpoint);
