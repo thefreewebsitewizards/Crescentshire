@@ -1354,12 +1354,12 @@ function createRepublicKionaRegionPinpoint(regionData) {
         left: ${regionData.position.left};
         width: 20px;
         height: 20px;
-        background: linear-gradient(45deg, #0F52BA, #C0C0C0);
-        border: 2px solid #C0C0C0;
+        background: linear-gradient(45deg, #FF6B35, #FFD700);
+        border: 2px solid #FFD700;
         border-radius: 50%;
         cursor: pointer;
         transition: all 0.3s ease;
-        box-shadow: 0 0 15px rgba(15, 82, 186, 0.5);
+        box-shadow: 0 0 15px rgba(255, 107, 53, 0.5);
         z-index: 10;
     `;
     
@@ -1373,19 +1373,53 @@ function createRepublicKionaRegionPinpoint(regionData) {
         left: 50%;
         transform: translateX(-50%);
         background: rgba(0, 0, 0, 0.8);
-        color: #C0C0C0;
+        color: #FFD700;
         padding: 4px 8px;
         border-radius: 4px;
         font-size: 12px;
         white-space: nowrap;
-        font-family: 'Cormorant Unicase', serif;
+        font-family: 'Cinzel', serif;
         text-shadow: 1px 1px 2px #000;
-        border: 1px solid #C0C0C0;
+        border: 1px solid #FFD700;
     `;
     
     pinpoint.appendChild(label);
     
-    // Add click handler
+    // Touch event handling
+    let touchStartTime = 0;
+    let touchStartPos = { x: 0, y: 0 };
+    let hasMoved = false;
+    
+    // Add touch handlers
+    pinpoint.addEventListener('touchstart', (e) => {
+        e.stopPropagation();
+        touchStartTime = Date.now();
+        const touch = e.touches[0];
+        touchStartPos = { x: touch.clientX, y: touch.clientY };
+        hasMoved = false;
+    });
+    
+    pinpoint.addEventListener('touchmove', (e) => {
+        e.stopPropagation();
+        const touch = e.touches[0];
+        const deltaX = Math.abs(touch.clientX - touchStartPos.x);
+        const deltaY = Math.abs(touch.clientY - touchStartPos.y);
+        if (deltaX > 10 || deltaY > 10) {
+            hasMoved = true;
+        }
+    });
+    
+    pinpoint.addEventListener('touchend', (e) => {
+        e.stopPropagation();
+        e.preventDefault();
+        const touchDuration = Date.now() - touchStartTime;
+        if (!hasMoved && touchDuration < 500) {
+            showRepublicKionaRegionModal(regionData);
+            createMagicalSparkles(pinpoint);
+        }
+    });
+    
+    // Add click handler for desktop
     pinpoint.addEventListener('click', () => {
         showRepublicKionaRegionModal(regionData);
         createMagicalSparkles(pinpoint);
