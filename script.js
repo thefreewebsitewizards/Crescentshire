@@ -251,7 +251,6 @@ function initializeMap() {
 
         mapContainer.addEventListener('touchmove', (e) => { 
             if (isDragging && e.touches.length === 1) { 
-                e.preventDefault(); 
                 const deltaX = e.touches[0].clientX - startX; 
                 // Remove deltaY to disable vertical movement
                 const deltaY = 0; // Disable vertical movement
@@ -816,6 +815,40 @@ function initializePinpointInteractions() {
     const freshPinpoints = document.querySelectorAll('.pinpoint');
     
     freshPinpoints.forEach(pin => {
+        // Add touch event support for mobile
+        let touchStartTime = 0;
+        let touchMoved = false;
+        
+        // Touch events for mobile
+        pin.addEventListener('touchstart', (e) => {
+            touchStartTime = Date.now();
+            touchMoved = false;
+            e.stopPropagation(); // Prevent map panning
+        });
+        
+        pin.addEventListener('touchmove', (e) => {
+            touchMoved = true;
+            e.stopPropagation(); // Prevent map panning
+        });
+        
+        pin.addEventListener('touchend', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Only trigger if it was a quick tap (not a long press or drag)
+            const touchDuration = Date.now() - touchStartTime;
+            if (!touchMoved && touchDuration < 500) {
+                const realm = pin.dataset.realm;
+                const label = pin.dataset.label;
+                
+                createMagicalSparkles(pin);
+                createPinpointBurst(pin);
+                
+                handleMainLevelClick(pin, realm, label);
+            }
+        });
+        
+        // Keep click event for desktop
         pin.addEventListener('click', (e) => {
             e.preventDefault();
             
@@ -828,6 +861,7 @@ function initializePinpointInteractions() {
             handleMainLevelClick(pin, realm, label);
         });
         
+        // Mouse events for desktop hover effects
         pin.addEventListener('mouseenter', () => {
             createMagicalSparkles(pin);
             if (typeof gsap !== 'undefined') {
