@@ -522,8 +522,8 @@ function handleOtherRealmTransition(realm, mapImage) {
             createCendrialModal();
             break;
         case 'shop':
-            // Redirect to shop page
-            window.location.href = 'shop.html';
+            // Show coming soon message
+            showCustomAlert('COMING SOON!');
             break;
         default:
             // Keep main map for other realms
@@ -551,6 +551,12 @@ function createSocialMediaPopup() {
                 <button class="close-modal" onclick="document.getElementById('socials-modal').remove()">&times;</button>
             </div>
             <div class="social-icons-container">
+                <a href="https://www.tiktok.com/@cendrial" target="_blank" class="social-icon-link">
+                    <div class="social-icon tiktok">
+                        <i class="fab fa-tiktok"></i>
+                    </div>
+                    <span>@cendrial</span>
+                </a>
                 <a href="https://www.instagram.com/crescentshire/" target="_blank" class="social-icon-link">
                     <div class="social-icon instagram">
                         <i class="fab fa-instagram"></i>
@@ -562,18 +568,6 @@ function createSocialMediaPopup() {
                         <i class="fab fa-facebook-f"></i>
                     </div>
                     <span>Crescentshire Publishing Co.</span>
-                </a>
-                <a href="#" class="social-icon-link">
-                    <div class="social-icon youtube">
-                        <i class="fab fa-youtube"></i>
-                    </div>
-                    <span>Crescentshire Publishing Co.</span>
-                </a>
-                <a href="#" class="social-icon-link">
-                    <div class="social-icon tiktok">
-                        <i class="fab fa-tiktok"></i>
-                    </div>
-                    <span>@crescentshire</span>
                 </a>
             </div>
         </div>
@@ -3782,11 +3776,11 @@ function createAuthorModal() {
                 <h3>About The Author</h3>
                 <div class="author-info">
                     <div class="author-image-container">
-                        <img src="assets/author.jpg" alt="R.K. Osborn" class="author-image">
+                        <img src="assets/author.png" alt="R.K. Osborn" class="author-image">
                     </div>
                     <div class="author-bio">
-                        <p>R. K. Osborn is an author from Central Texas pouring her lifelong passion of storytelling into stories about characters who feel like old friends.</p>
-                        <p>She is focused on writing an epic adventure, The Collective Libraries of Cendrial, with themes of resilience, transformation, and answering the call of destiny.</p>
+                        <p>R.K. Osborn is a debut author from Central Texas with a unique writing style rooted in prose and illustrative imagery. She founded The Crescentshire Publishing Company in 2025 with a mission to publish works of fiction that focus on themes of resilience and transformation.</p>
+                        <br><p>Her debut series The Collective Libraries of Cendrial is a Scifantasy Mystery set in the spectacular, magic world of Cendrial. Follow her journey as an independent author and support R.K. Osborn’s vision for the future.</p>
                         <div class="author-badge">Writing</div>
                     </div>
                 </div>
@@ -3796,13 +3790,9 @@ function createAuthorModal() {
             <div class="author-section">
                 <h3>Project Feather</h3>
                 <div class="project-info">
-                    <p>Project Feather is an innovative storytelling initiative that combines traditional fantasy elements with interactive digital experiences. This groundbreaking approach allows readers to explore the world of Cendrial beyond the pages of the books.</p>
-                    <br><p>Through Project Feather, fans can discover hidden lore, character backgrounds, and immersive content that enhances the main storyline of The Collective Libraries of Cendrial.</p>
-                    <div class="project-features">
-                        <div class="feature">Interactive Maps</div>
-                        <div class="feature">Character Journals</div>
-                        <div class="feature">Exclusive Artwork</div>
-                    </div>
+                    <p>Project Feather is an ongoing project that encompasses a thirteen book series, prequel trilogy, short story anthology, and beyond. R.K. Osborn has plans to create an expansive Cendriverse.</p>
+                    <br><p>Further plans for Project Feather include films, a television series, and several video games.</p>
+                    <br><p>R.K. Osborn’s commitment to adhere authentically to cultural, marginalized voices is a cornerstone of The Crescentshire Publishing Company.</p>
                 </div>
             </div>
             
@@ -3810,12 +3800,11 @@ function createAuthorModal() {
             <div class="author-section">
                 <h3>Kickstarter</h3>
                 <div class="kickstarter-info">
-                    <p>Join us on our upcoming Kickstarter campaign to bring the world of Cendrial to life! Your support will help fund professional editing, stunning cover art, and expanded distribution of The Collective Libraries series.</p>
-                    <br><p>Backers will receive exclusive rewards including limited edition hardcovers, character artwork, personalized bookplates, and early access to Project Feather content.</p>
+                <p><h1>COMING SOON!</h1></p>
+                    <p>Your support will allow R.K. Osborn to hire professional editing services, develop stunning book covers, and bring the expansive world of Cendrial to life. Every donation will help a debut author’s effort to deliver a compelling series that will capture the imaginations of bibliophiles across the globe.</p>
+                    <br><p>Backers will receive exclusive rewards including signed hardcovers, character artwork, personalized bookplates, and early access to Project Feather content.</p>
                     <div class="kickstarter-details">
                         <div class="detail"><span>Launch Date:</span> Coming Soon</div>
-                        <div class="detail"><span>Goal:</span> 4,000</div>
-                        <div class="detail"><span>Duration:</span> 30 Days</div>
                     </div>
                     <button class="kickstarter-notify">Get Notified</button>
                 </div>
@@ -3878,26 +3867,22 @@ function createNewsModal() {
             
             <!-- Blog Section -->
             <div class="news-section">
-                <h3>Blog</h3>
+                <h3>Patreon</h3>
                 <div class="news-content">
                     <div class="blog-post">
-                        <h4>The World of Cendrial: Origin Stories</h4>
+                        <h4>Welcome to My Patreon!</h4>
                         <div class="post-meta">
-                            <span class="post-date">March 15, 2023</span>
-                            <span class="post-category">Worldbuilding</span>
+                            <span class="post-date">August 7, 2025</span>
+                            <span class="post-category">Blog</span>
                         </div>
-                        <p>Explore the rich history behind the creation of Cendrial and how the four major kingdoms came to be. This deep dive into the lore reveals secrets about the ancient magic that shaped the land.</p>
-                        <a href="#" class="read-more-btn">Read More</a>
-                    </div>
-                    
-                    <div class="blog-post">
-                        <h4>Character Spotlight: The Librarians of Lunas</h4>
-                        <div class="post-meta">
-                            <span class="post-date">February 28, 2023</span>
-                            <span class="post-category">Characters</span>
-                        </div>
-                        <p>Meet the mysterious keepers of knowledge who maintain the grand libraries of Lunas Kingdom. Learn about their traditions, magical abilities, and the sacred oath they take to protect the written word.</p>
-                        <a href="#" class="read-more-btn">Read More</a>
+                        <br><p>Hello there!</p>
+                        <br><p>My name is <span style="font-weight: bold; color: var(--gold);">R.K. Osborn</span>, I am an author hellbent on creating a series that relates to those who love to read about characters who feel real.</p>
+                        <br><p>I wish to create books that resonate with those who seek comfort in fiction, who cheer on the underdogs, and who celebrate when characters triumph over the obstacles in their way.</p>
+                        <br><p>You'll probably notice me mention <span style="font-weight: bold; color: var(--gold);">The Collective Libraries of Cendrial</span> a lot on this page, and for good reason! It is a thirteen-book series deeply tied to my heart.</p>
+                        <br><p>I've been worldbuilding since I was in high school and I have been working on the overarching plot of the series for the past two decades. These four main characters — Ky'zartha, Arik, Korsin, and Ravik - represent much more than what appears on the surface.</p>
+                        <br><p>It is my mission to share insights into their motivations, their inspiration, and their goals. I wish to write characters who feel like they could walk off the page; as any writer can attest, bringing characters to life is one of the most difficult tasks of the creative proces</p>
+                        <br><p>I hope to find an audience who resonate with not only my characters, but my process. If you like to read stories with heart, grit, a touch of spice, and consequences, <span style="font-weight: bold; color: var(--gold);">The Collective Libraries of Cendrial</span> is the series for you.</p>
+                        <br><p>Happy reading!</p>
                     </div>
                 </div>
             </div>
@@ -3907,14 +3892,14 @@ function createNewsModal() {
                 <h3>Substack</h3>
                 <div class="news-content">
                     <div class="substack-info">
-                        <p>Subscribe to our Substack newsletter for exclusive content, behind-the-scenes looks at the creative process, and early access to new chapters and artwork.</p>
+                        <p>Subscribe to the <span style="font-weight: bold; color: var(--gold);">Don’t Stop Writing with R.K. Osborn newsletter</span> for personal articles, behind-the-scenes looks at the creative process, and early access to announcements.</p>
                         <div class="substack-features">
                             <div class="feature">Weekly Updates</div>
                             <div class="feature">Exclusive Content</div>
-                            <div class="feature">Author Notes</div>
+                            <div class="feature">Author Content</div>
                         </div>
                         <div class="substack-cta">
-                            <p>Join our growing community of readers and get notified when new content is available.</p>
+                            <p>Join our growing creative community of readers and get notified when new content is available.</p>
                             <button class="subscribe-btn">Subscribe Now</button>
                         </div>
                     </div>
@@ -3937,7 +3922,7 @@ function createNewsModal() {
     const subscribeButton = modal.querySelector('.subscribe-btn');
     if (subscribeButton) {
         subscribeButton.addEventListener('click', () => {
-            window.open('https://crescentshire.substack.com/', '_blank');
+            window.open('https://rkosborn.substack.com/?utm_source=edit-profile-visibility', '_blank');
         });
     }
     
@@ -4040,46 +4025,34 @@ function createCendrialModal() {
             
             <!-- The Infernum Section -->
             <div class="news-section">
-                <h3>The Infernum</h3>
+                <h3>The Seven Disciplines of Magic</h3>
                 <div class="news-content">
-                    <p>The Infernum is the fiery core of Cendrial, a realm of eternal flame and molten landscapes. Ancient beings of pure fire energy known as the Flamebringers dwell here, guarding the primordial heat that fuels the magical currents throughout all of Crescentshire.</p>
-                    <p>Visitors to the Infernum must wear special enchanted garments to withstand the extreme temperatures. The rare minerals found in this region are highly sought after by alchemists and craftsmen for their unique magical properties.</p>
+                    <p>Magi of Cendrial learn one of the seven disciplines of magic from Sil’maas University or Lunas Academy.</p> 
+                    <br><p>These disciplines are: Infernal, Lavarus, Landshaper, Scrivenus, Shapeshifting, Reaping, and Dreamweaving.</p>
                 </div>
             </div>
             
             <!-- The Wrath Section -->
             <div class="news-section">
-                <h3>The Wrath</h3>
+                <h3>Zi’ril, Goddess of the Sun</h3>
                 <div class="news-content">
-                    <p>The Wrath is a tempestuous region of violent storms and unpredictable weather patterns. Lightning strikes illuminate the perpetually dark skies, while powerful winds reshape the landscape daily. The Storm Callers, an ancient order of weather mages, have established their sanctuary at the eye of the eternal hurricane.</p>
-                    <p>Despite its dangers, The Wrath is home to unique flora that thrive on electrical energy, producing luminescent fruits with remarkable healing properties.</p>
+                    <p>The companion of the Goddragon of Cendrial, Zi'ril is present in nearly every aspect of modern Cendrian culture that has endured since the Age of Dragons.</p>
                 </div>
             </div>
             
             <!-- Zi'ril Section -->
             <div class="news-section">
-                <h3>Zi'ril</h3>
+                <h3>Brother Moon Vir’anaar, God of Death</h3>
                 <div class="news-content">
-                    <p>Zi'ril is a crystalline forest where massive formations of living crystal grow and evolve over centuries. The crystals resonate with harmonic frequencies that can be heard as haunting melodies throughout the region. The Crystal Singers, a secretive society, have learned to communicate with these sentient formations.</p>
-                    <p>The reflective surfaces of Zi'ril create dazzling light displays when touched by the sun, and it's said that those who meditate among the crystals can glimpse possible futures in their facets.</p>
+                    <p>Brother Moon Vir'anaar watches over the lost souls of Cendrial. He appears in the night as wisps of smoke, collecting souls of the departed.</p>
                 </div>
             </div>
             
             <!-- Vir'anaar Section -->
             <div class="news-section">
-                <h3>Vir'anaar</h3>
+                <h3>Brother Moon Eris, God of the Afterlife</h3>
                 <div class="news-content">
-                    <p>Vir'anaar is a vast floating archipelago of islands suspended in the sky by ancient magic. The inhabitants have developed a unique society centered around wind magic and aerial navigation. Massive airships travel between the floating islands, carrying goods and travelers.</p>
-                    <p>The soil of Vir'anaar is infused with levitation magic, allowing for the cultivation of floating gardens and orchards. The Sky Wardens patrol the boundaries of this realm, protecting it from those who would exploit its resources.</p>
-                </div>
-            </div>
-            
-            <!-- Eris Section -->
-            <div class="news-section">
-                <h3>Eris</h3>
-                <div class="news-content">
-                    <p>Eris is a mysterious realm of shifting shadows and whispers, where reality itself seems malleable. The boundaries between dreams and waking life blur here, and visitors often report experiencing visions of their deepest desires or fears.</p>
-                    <p>The Shadow Weavers, masters of illusion magic, make their home in Eris, studying the nature of perception and consciousness. It's rumored that hidden within the heart of Eris lies a library containing knowledge from all possible realities.</p>
+                    <p>Eris is a moon with a large ring around its horizontal axis. Legends say the ring around Eris was created by departed souls reaped by his brother Vir'anaar.</p>
                 </div>
             </div>
         </div>
@@ -4130,30 +4103,43 @@ function createDragonrealmModal() {
                 <button class="close-modal" onclick="document.getElementById('dragonrealm-modal').remove()">&times;</button>
             </div>
             
-            <!-- Unknown Section -->
-            <div class="news-section">
-                <h3>Unknown</h3>
-                <div class="news-content">
-                    <p>The Unknown is a mysterious region of the Dragonrealm shrouded in perpetual mist. Ancient legends speak of lost civilizations and forgotten magic hidden within its boundaries. Few explorers have ventured into this enigmatic territory, and even fewer have returned with their sanity intact.</p>
-                    <p>The mists are said to shift and change, revealing different landscapes each time one enters. Some scholars believe the Unknown exists partially in another dimension, explaining its ever-changing nature and the strange temporal anomalies experienced by those who wander too deep.</p>
-                </div>
-            </div>
-            
             <!-- Disciples of Magic Section -->
             <div class="news-section">
-                <h3>Disciples of Magic</h3>
+                <h3>Raz’lun, King of the Dragonrealm</h3>
                 <div class="news-content">
-                    <p>The Disciples of Magic are an ancient order of spellcasters who have formed a sacred covenant with the dragons of the realm. Through centuries of study and communion with these magnificent creatures, they have developed unique forms of magic that blend human ingenuity with draconic power.</p>
-                    <p>Their grand academy, the Spire of Scaled Wisdom, rises from the center of a volcanic caldera. Here, promising students from across Crescentshire come to learn the secrets of draconic magic, elemental manipulation, and the ancient language of dragons. The Disciples maintain the delicate balance between human kingdoms and dragon territories, serving as diplomats and peacekeepers.</p>
+                    <p>Raz'lun was the thirteenth King of the Dragonrealm, it is not known who ruled before him.</p>
                 </div>
             </div>
-            
-            <!-- Dragon King Raz'lun Section -->
+
             <div class="news-section">
-                <h3>Dragon King Raz'lun</h3>
+                <h3>The Infernal</h3>
                 <div class="news-content">
-                    <p>Raz'lun the Eternal Flame is the ancient Dragon King who rules over the Dragonrealm with wisdom and fierce protection. His scales shimmer with the colors of molten gold and ruby, and his eyes hold the knowledge of millennia. Born from the first volcanic eruption of Crescentshire, Raz'lun is said to be as old as the land itself.</p>
-                    <p>From his throne atop Mount Cinderspire, Raz'lun oversees the council of Elder Dragons who govern the various dragon flights. Though rarely seen by human eyes, his decisions influence the entire continent. Once every century, he grants audience to worthy seekers, bestowing gifts of knowledge or enchanted dragon scales that can be forged into artifacts of immense power.</p>
+                    <p>Dragons are revered for their intellect and are known to be quite arrogant, each prouder than the last; once they conquered every square inch of land, Dragons began to test their might against one another in a ferocious frenzy.</p>
+                    <br><p>Known as ‘The Infernum,’ the First War was sparked by one Dragon's anguish.</p>
+                    <br><p>The Infernum nearly destroyed Cendrial.</p>
+                </div>
+            </div>
+
+            <div class="news-section">
+                <h3>The Wrath</h3>
+                <div class="news-content">
+                    <p>Known as ‘The Wrath,’ the Second War between Humans and Dragons ended 200 years ago. Historians declared Dragons the victor, though many doubt the Scribes' decision.</p>
+                    <br><p>Records from before the Second War are scarce.</p>
+                </div>
+            </div>
+
+            <div class="news-section">
+                <h3>The Betrayal</h3>
+                <div class="news-content">
+                    <p>After the end of the Wrath, a Dragonrider killed his Dragon on the summit of Dragon Mountain seeking ultimate power – instead, The Betrayer sparked the Goddragon’s fury.</p>
+                    <br><p>As a direct result of The Betrayal, a barrier between the Dragonrealm and the Queensrealm grew in the form of a great magical forest that stretches across the northern mountain range above Lunas Kingdom.</p>
+                </div>
+            </div>
+
+            <div class="news-section">
+                <h3>The Everwood Treaty</h3>
+                <div class="news-content">
+                    <p>Upon the appearance of the Everwood 20 years ago, tribes of shapeshifters who live in the forest created an accord with leaders of the Queensrealm that states Humans are banished from the Dragonrealm. A powerful spell protects the Everwood from invaders.</p>
                 </div>
             </div>
         </div>

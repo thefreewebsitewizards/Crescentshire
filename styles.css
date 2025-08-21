@@ -2213,6 +2213,15 @@ body {
     padding-bottom: 0;
 }
 
+.author-section h1 {
+    color: var(--gold);
+    font-size: 22px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    position: relative;
+    text-align: center;
+}
+
 .author-section h3 {
     color: var(--gold);
     font-size: 22px;
@@ -2466,6 +2475,7 @@ body {
 .substack-info p {
     margin-bottom: 15px;
     line-height: 1.6;
+    text-align: center;
 }
 
 .substack-features {
@@ -2473,6 +2483,8 @@ body {
     flex-wrap: wrap;
     gap: 10px;
     margin: 20px 0;
+    justify-content: center;
+
 }
 
 .substack-features .feature {
