@@ -3918,6 +3918,7 @@ function createNewsModal() {
 
                <div class="news-content" style="margin-top: 20px;">
                     <div class="blog-post">
+                        <div style="display: grid; grid-template-columns: 1fr auto; align-items: center;">
                             <!-- Left side: Text and post-meta -->
                             <div>
                                 <h4>The Collective Libraries of Cendrial: Ky'zartha Lyonhart and the Lonely Attic; Prologue</h4>
