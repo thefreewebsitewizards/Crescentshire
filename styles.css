@@ -1957,7 +1957,7 @@ body {
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
     z-index: 9999;
-    font-size: 16px;
+    font-size: 14px;
     max-width: 200px;
     text-align: center;
 }
