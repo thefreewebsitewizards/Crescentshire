@@ -1958,6 +1958,8 @@ body {
     box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
     z-index: 9999;
     font-size: 16px;
+    max-width: 200px;
+    text-align: center;
 }
 
 .return-button:hover {
