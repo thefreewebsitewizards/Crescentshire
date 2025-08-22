@@ -655,19 +655,57 @@ function updateBreadcrumb() {
         }
     }
     
-    breadcrumb.innerHTML = navigationHistory.map((item, index) => {
-        const isLast = index === navigationHistory.length - 1;
+    // Map realm names to display names
+    const displayNames = {
+        'Queensrealm': 'Map of Cendrial',
+        'Lunas Kingdom': 'Map of Cendrial',
+        'Silmaas Empire': 'Map of Cendrial',
+        'Southern Isles': 'Map of Cendrial',
+        'Republic of Kiona': 'Map of Cendrial'
+    };
+    
+    // For third level maps, show only "MAP OF CENDRIAL"
+    // For second level maps (queensrealm), show only "Map of Cendrial"
+    let displayHistory;
+    if (currentLevel === 'third') {
+        displayHistory = ['Map of Cendrial'];
+    } else if (currentLevel === 'second' && navigationHistory.includes('Queensrealm')) {
+        displayHistory = ['Map of Cendrial'];
+    } else {
+        displayHistory = navigationHistory.map(item => displayNames[item] || item);
+    }
+    
+    breadcrumb.innerHTML = displayHistory.map((item, index) => {
+        const isLast = index === displayHistory.length - 1;
+        const dataLevel = currentLevel === 'third' ? 'queensrealm' : index;
+        
+        // For third level, always make MAP OF CENDRIAL clickable
+        // For other levels, make all items except the last one clickable
+        let cssClass, isClickable;
+        if (currentLevel === 'third') {
+            cssClass = 'clickable';
+            isClickable = true;
+        } else {
+            cssClass = isLast ? 'active' : 'clickable';
+            isClickable = !isLast;
+        }
+        
         return `
-            <span class="breadcrumb-item ${isLast ? 'active' : 'clickable'}" 
-                  data-level="${index}">${item}</span>
+            <span class="breadcrumb-item ${cssClass}" 
+                  data-level="${dataLevel}">${item}</span>
         `;
     }).join(' > ');
     
     const clickableItems = breadcrumb.querySelectorAll('.breadcrumb-item.clickable');
     clickableItems.forEach(item => {
         item.addEventListener('click', () => {
-            const level = parseInt(item.dataset.level);
-            navigateToLevel(level);
+            const level = item.dataset.level;
+            if (level === 'queensrealm') {
+                // Navigate back to queensrealm (second level)
+                navigateToSecondLevel();
+            } else {
+                navigateToLevel(parseInt(level));
+            }
         });
     });
 }
@@ -686,7 +724,7 @@ function navigateToSecondLevel() {
     const mapWrapper = document.getElementById('map-wrapper');
     const mapImage = document.querySelector('#map-wrapper img');
     
-    // Reset navigation history to second level
+    // Reset navigation history to second level with new display name
     navigationHistory = ['Home', 'Queensrealm'];
     currentLevel = 'second';
     
@@ -1454,7 +1492,7 @@ function showRepublicKionaRegionModal(regionData) {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        background: linear-gradient(135deg, #000 0%, #0F52BA 50%, #000 100%);
+        background: linear-gradient(135deg, #000 0%, #50C878 50%, #000 100%);
         border: 3px solid #C0C0C0;
         border-radius: 15px;
         padding: 30px;
@@ -1462,7 +1500,7 @@ function showRepublicKionaRegionModal(regionData) {
         width: 90%;
         color: #C0C0C0;
         font-family: 'Cormorant Unicase', serif;
-        box-shadow: 0 0 50px rgba(15, 82, 186, 0.8);
+        box-shadow: 0 0 50px rgba(80, 200, 120, 0.8);
         z-index: 1000;
         animation: modalFadeIn 0.5s ease-out;
     `;
@@ -1475,7 +1513,7 @@ function showRepublicKionaRegionModal(regionData) {
                 right: -10px;
                 background: #C0C0C0;
                 color: #000;
-                border: 2px solid #0F52BA;
+                border: 2px solid #50C878;
                 border-radius: 50%;
                 width: 30px;
                 height: 30px;
@@ -1491,7 +1529,7 @@ function showRepublicKionaRegionModal(regionData) {
                 color: #C0C0C0;
                 text-align: center;
                 font-size: 28px;
-                text-shadow: 2px 2px 4px #0F52BA;
+                text-shadow: 2px 2px 4px #50C878;
                 font-family: 'Cormorant Unicase', serif;
             ">${regionData.name}</h2>
             
@@ -1547,7 +1585,7 @@ function showRepublicKionaLoadingEffect() {
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(135deg, #000 0%, #0F52BA 50%, #000 100%);
+        background: linear-gradient(135deg, #000 0%, #50C878 50%, #000 100%);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -1561,7 +1599,7 @@ function showRepublicKionaLoadingEffect() {
                 width: 60px;
                 height: 60px;
                 border: 4px solid #C0C0C0;
-                border-top: 4px solid #0F52BA;
+                border-top: 4px solid #50C878;
                 border-radius: 50%;
                 animation: spin 1s linear infinite;
                 margin: 0 auto 20px;
@@ -1569,7 +1607,7 @@ function showRepublicKionaLoadingEffect() {
             <h2 style="
                 margin: 0;
                 font-size: 24px;
-                text-shadow: 2px 2px 4px #0F52BA;
+                text-shadow: 2px 2px 4px #50C878;
                 font-family: 'Cormorant Unicase', serif;
             ">Loading Republic of Kiona...</h2>
         </div>
@@ -1602,14 +1640,6 @@ function getRepublicKionaData() {
             trade: "-",
             description: "A scorching desert perched upon a seaside cliff, the Kiona Desert serves as a habitat for criminals banished from New Kiona City.",
             position: { top: "87%", left: "45%" }
-        },
-        {
-            name: "Kionan Provinces",
-            population: "20,384",
-            export: "-",
-            trade: "-",
-            description: "The Kionan Provinces are an archipelago of privately-owned islands across the continent.",
-            position: { top: "13%", left: "50%" }
         },
         {
             name: "Kionan Provinces",
@@ -2328,7 +2358,7 @@ function getSouthernIslesData() {
             export: "-",
             trade: "-",
             description: "The largest ocean that spans across most of Cendrial's surface. It is rumored there are two footprints in the middle of the ocean, where a Dragon walked across the surface of Cendrial.",
-            position: { top: "3%", left: "46%" }
+            position: { top: "10%", left: "50%" }
         },
         {
             name: "The Halls of Heroes",
@@ -2556,7 +2586,7 @@ function getSilmaasEmpireData() {
             export: "-",
             trade: "-",
             description: "The largest ocean that spans across most of Cendrial's surface. It is rumored there are two footprints in the middle of the ocean, where a Dragon walked across the surface of Cendrial.",
-            position: { top: "17%", left: "32%" }
+            position: { top: "25%", left: "32%" }
         },
         {
             name: "The Septagon Pits",
@@ -3285,7 +3315,7 @@ function showLunasRegionModal(regionData) {
         border: 3px solid #FFD700;
         border-radius: 15px;
         padding: 30px;
-        max-width: 500px;
+        max-width: 700px;
         max-height: 80vh;
         overflow-y: auto;
         z-index: 2000;

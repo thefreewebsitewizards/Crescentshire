@@ -1019,82 +1019,6 @@ body {
     --gold: #FFD700;
 }
 
-/* Breadcrumb Navigation */
-.breadcrumb-navigation {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 1000;
-    background: linear-gradient(135deg, var(--black) 0%, rgba(153, 102, 204, 0.2) 100%);
-    border: 2px solid var(--silver);
-    border-radius: 25px;
-    padding: 10px 20px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 0 20px var(--amethyst);
-    font-family: 'Cinzel Decorative', serif;
-}
-
-.breadcrumb-item {
-    color: var(--pearl);
-    text-shadow: 0 0 5px var(--amethyst);
-    font-size: 14px;
-    transition: all 0.3s ease;
-}
-
-.breadcrumb-item.clickable {
-    cursor: pointer;
-    color: var(--gold);
-}
-
-.breadcrumb-item.clickable:hover {
-    color: var(--ruby);
-    text-shadow: 0 0 10px var(--ruby);
-    transform: scale(1.1);
-}
-
-.breadcrumb-item.active {
-    color: var(--emerald);
-    text-shadow: 0 0 8px var(--emerald);
-    font-weight: bold;
-}
-
-.breadcrumb-separator {
-    color: var(--silver);
-    margin: 0 8px;
-    opacity: 0.7;
-}
-
-/* Return Button */
-.return-button {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 1000;
-    padding: 15px 25px;
-    background: linear-gradient(45deg, var(--gold), var(--ruby));
-    color: var(--black);
-    border: 3px solid var(--silver);
-    border-radius: 30px;
-    font-family: 'Kiona', 'Cinzel Decorative', serif;
-    font-weight: bold;
-    font-size: 16px;
-    cursor: pointer;
-    box-shadow: 
-        0 0 20px var(--amethyst),
-        0 0 40px rgba(153, 102, 204, 0.5);
-    transition: all 0.3s ease;
-    backdrop-filter: blur(5px);
-}
-
-.return-button:hover {
-    transform: scale(1.1) rotate(2deg);
-    box-shadow: 
-        0 0 30px var(--ruby),
-        0 0 60px rgba(224, 17, 95, 0.7);
-    background: linear-gradient(45deg, var(--ruby), var(--gold));
-    color: var(--pearl);
-}
-
 /* Enhanced Pinpoint Styles for Different Realms */
 .pinpoint {
     position: absolute;
@@ -1697,8 +1621,9 @@ body {
         right: 5px;
         padding: 8px 12px;
         font-size: 12px;
-        background: linear-gradient(135deg, #000 0%, rgba(139, 0, 0, 0.8) 100%);
-        border: 2px solid #FFD700;
+        background: linear-gradient(45deg, #FFD700, #FFA500);
+        border: 2px solid #8B4513;
+        color: #1a1a2e; 
         border-radius: 15px;
         text-align: center;
         backdrop-filter: blur(10px);
@@ -1982,33 +1907,30 @@ body {
     position: fixed;
     top: 20px;
     left: 20px;
-    background: rgba(0, 0, 0, 0.8);
-    border: 2px solid #FFD700;
+    background: linear-gradient(45deg, #FFD700, #FFA500);
+    border: 2px solid #8B4513;
     border-radius: 25px;
     padding: 10px 20px;
     z-index: 9999;
     font-family: 'Cinzel', serif;
-    color: #FFD700;
+    color: #1a1a2e;
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 .breadcrumb-item {
-    color: #FFD700;
+    color: #1a1a2e;
     text-decoration: none;
     transition: all 0.3s ease;
 }
 
 .breadcrumb-item.clickable {
     cursor: pointer;
-    text-decoration: underline;
-}
-
-.breadcrumb-item.clickable:hover {
-    color: #FFA500;
-    text-shadow: 0 0 5px #FFD700;
 }
 
 .breadcrumb-item.active {
-    color: #F8F8FF;
+    color: #1a1a2e;
     font-weight: bold;
 }
 
