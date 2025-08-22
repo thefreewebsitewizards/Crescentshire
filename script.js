@@ -3915,6 +3915,56 @@ function createNewsModal() {
                         <br><p>Happy reading!</p>
                     </div>
                 </div>
+
+               <div class="news-content" style="margin-top: 20px;">
+                    <div class="blog-post">
+                        <div style="display: grid; grid-template-columns: 1fr auto; align-items: center;">
+                            <!-- Left side: Text and post-meta -->
+                            <div>
+                                <h4>The Collective Libraries of Cendrial: Ky'zartha Lyonhart and the Lonely Attic; Prologue</h4>
+                                <div class="post-meta">
+                                    <span class="post-date">August 21, 2025</span>
+                                    <span class="post-category">Cendrial</span>
+                                </div>
+                            </div>
+
+                            <!-- Right side: Image -->
+                            <img src="assets/patreon.png" alt="Placeholder Image" style="width: 150px; height: 150px; border-radius: 10px; border: 2px solid #000;">
+                        </div>
+                        <br><p>In one swift motion, the lid of the Composer’s box lifted.</p>
+                        <br><p>The blinding, penetrative glare of overhead lights obscured a tall figure for a moment. It was a Sentry, an autonomous bodyguard, whose featureless face peered into the box while the Composer recalibrated its blurred vision.</p>
+                        <br><p>The Sentry leaned down to inspect the newly finished product inside its black, velvet-lined case. The Composer was crafted to appear as any typical feathered quill, its wooden body made of Everwood complimented by a beautiful black feather.</p>
+                        <br><p>“Show me,” a deep, irritated voice commanded nearby.</p>
+                        <br><p>Obediently, the metal man reached down and took the Composer between its articulated digits delicately. The Sentry held it out, which was snatched by the Inventor without so much as another word.</p>
+                        <br><p>He inspected the product dispassionately, turned it this way and that in his hand as he studied the feather. The form fit the hand comfortably. The chassis was exquisitely handcrafted by Cendrial's foremost sculptor, a man revered for his work.</p>
+                        <br><p>The Inventor frowned and tossed it aside absentmindedly to be caught by a nervous-looking assistant standing next to the Sentry.</p>
+                        <br><p>“Run a final diagnostic.” He grit his teeth, prepared for the worst.</p>
+                        <br><p>Right away, the Sentry began the remote test and a bright white loading bar with a percentage indicator below it appeared on its face. As the test ran, the Inventor and his assistant stood by in tense silence.</p>
+                        <br><p>It was at this moment the Composer took the opportunity to discern more of its surroundings, curiosity mounting as the bar slowly filled.</p>
+                        <br><p>The Sentry looked as any other, its symmetrical chassis was made of a dark metal, its form resembled that of a tall, muscled man. There were no discernible edges or seams to the design; it appeared as if it were a walking black statue. Marvelous.</p>
+                        <br><p>Sentries were not common outside the west, and thus the Composer deduced they must currently be at the heart of the Republic of Kiona, perhaps in the belly of the beast, as it were. The Presidential Palace, or even Eon, perhaps?</p>
+                        <br><p>The room they were standing in was dark, too dark to make out much detail beyond a few machines nearby running all sorts of diagnostics on dozens of monitors.</p>
+                        <br><p>The trio stood in front of a wide screen split into four quadrants. In the top left corner were vitals that seemed slightly elevated — perhaps in fear — with the name “SUBJECT 1” in small print at the top; the top right corner was a stream of data that flowed steadily, none of which made any sense to the Composer; the bottom right screen featured a loading bar that mirrored the Sentry’s which currently reported, “Beta Composer: 10522…85%”; the lower left quadrant was surely the most worrisome.</p>
+                        <br><p>On a white background appeared black text. This very text, in fact. A word processor of some sort. Test. Test. Woah, that’s weird. I can’t read it.</p>
+                        <br><p>As the Composer took in its surroundings, thought, recorded whatever it observed or heard, letters appeared rapidly, as if some phantom were typing on an invisible keyboard in real time. Test. Test. Test. Wow.</p>
+                        <br><p>It became clear those in the room could also not comprehend the language.</p>
+                        <br><p>The Composer concluded this must be why the Inventor — who had painstakingly scoured Cendrial for the world’s foremost sculptor to produce a gorgeous product — was angry. Clearly the Composer’s onus was informational. Espionage proved rather difficult if you could not understand the information being collected.</p>
+                        <br><p>The Sentry’s screened face flashed red before it announced in a robotic tone, “Task complete.” Then, its face darkened once more and it stood by dutifully.</p>
+                        <br><p>Startled, the assistant jumped and gasped. The Inventor’s brow furrowed.</p>
+                        <br><p>The quadrant that had shown a loading bar before now appeared to display video of what the Sentry saw, which currently was the skittish man fumbling with a thin black tablet in his hands.</p>
+                        <br><p>The assistant pecked rapidly at the screen several times until a report popped up. He swallowed hard. The results were clearly not favorable.</p>
+                        <br><p>He didn’t want to deliver the news.</p>
+                        <br><p>“Well?” The Inventor barked impatiently. He drummed his fingers across the solid wooden desk menacingly.</p>
+                        <br><p>“Well,” the nervous man started with a shy timbre in his voice. “This one failed as well, sir.”</p>
+                        <br><p>“H’vath!” The Inventor slammed his fist into the desk. The wood groaned beneath his strength, the corner overhang snapped like a piece of straw. A mug full of liquid crashed onto the concrete floor and shattered as the assistant cowered behind the tablet.</p>
+                        <br><p>The Sentry turned towards the assistant and its left arm transformed into a purplish energy blade, ready to act if instructed. The light from the blade lit up the room — they were in a lab of some sort with dozens of empty workstations. Angrily, the Inventor lifted a hand and the Sentry returned to its stand down position.</p>
+                        <br><p>With a soft whimper, the assistant took a step back into the shadows.</p>
+                        <br><p>“Get it out of my sight,” the Inventor seethed. “Ship it to Serra. I want an update the instant this Composer is fixed and connected to the Archives.” He emphasized his command with a pointed finger. “Now!”</p>
+                        <br><p>“Yes, sir!” The assistant blanched and scrambled to put the Composer back into its black box.</p>
+                        <br><p>As the lid closed, the Composer was sealed within deafened darkness.</p>
+                        <br><p>As the lid closed, the signal ceased.</p>
+                    </div>
+                </div>
             </div>
             
             <!-- Substack Section -->

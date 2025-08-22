@@ -1917,6 +1917,8 @@ body {
     font-family: 'Cinzel', serif;
     font-weight: bold;
     text-decoration: none;
+    max-width: 150px;
+    text-align: center;
 }
 
 .breadcrumb-item {
@@ -2380,20 +2382,6 @@ body {
     color: var(--ruby);
 }
 
-.read-more-btn {
-    display: inline-block;
-    margin-top: 15px;
-    color: var(--gold);
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.3s ease;
-}
-
-.read-more-btn:hover {
-    color: var(--ruby);
-    text-shadow: 0 0 5px var(--ruby);
-}
-
 .substack-info p {
     margin-bottom: 15px;
     line-height: 1.6;
@@ -2423,7 +2411,8 @@ body {
     text-align: center;
 }
 
-.subscribe-btn {
+.subscribe-btn,
+.read-more-btn {
     background: linear-gradient(135deg, var(--ruby) 0%, var(--amethyst) 100%);
     color: var(--pearl);
     border: none;
@@ -2437,7 +2426,8 @@ body {
     box-shadow: 0 0 15px rgba(153, 102, 204, 0.5);
 }
 
-.subscribe-btn:hover {
+.subscribe-btn:hover,
+.read-more-btn:hover {
     transform: scale(1.05);
     box-shadow: 0 0 20px rgba(224, 17, 95, 0.7);
 }
