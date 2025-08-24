@@ -2414,8 +2414,16 @@ body {
     text-align: center;
 }
 
+.readmore-cta {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+}
+
 .subscribe-btn,
-.read-more-btn {
+.read-more-btn,
+.readmore-btn,
+.readmore1-btn {
     background: linear-gradient(135deg, var(--ruby) 0%, var(--amethyst) 100%);
     color: var(--pearl);
     border: none;
@@ -2427,10 +2435,14 @@ body {
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 0 15px rgba(153, 102, 204, 0.5);
+    align-items: center;
+    justify-content: center;
 }
 
 .subscribe-btn:hover,
-.read-more-btn:hover {
+.read-more-btn:hover,
+.readmore-btn:hover,
+.readmore1-btn:hover {
     transform: scale(1.05);
     box-shadow: 0 0 20px rgba(224, 17, 95, 0.7);
 }

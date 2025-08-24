@@ -1362,18 +1362,16 @@ function createRepublicKionaRegions() {
     const regions = getRepublicKionaData();
     const mapWrapper = document.getElementById('map-wrapper');
     
-    regions.forEach((regionData, index) => {
-        setTimeout(() => {
-            const pinpoint = createRepublicKionaRegionPinpoint(regionData);
-            mapWrapper.appendChild(pinpoint);
-            
-            if (typeof gsap !== 'undefined') {
-                gsap.fromTo(pinpoint, 
-                    { scale: 0, opacity: 0, y: -50 },
-                    { scale: 1, opacity: 1, y: 0, duration: 0.8, ease: "back.out(1.7)" }
-                );
-            }
-        }, index * 100);
+    regions.forEach((regionData) => {
+        const pinpoint = createRepublicKionaRegionPinpoint(regionData);
+        mapWrapper.appendChild(pinpoint);
+
+        if (typeof gsap !== 'undefined') {
+            gsap.fromTo(pinpoint, 
+                { scale: 0, opacity: 0, y: -50 },
+                { scale: 1, opacity: 1, y: 0, duration: 0.8, ease: "back.out(1.7)" }
+            );
+        }
     });
 }
 
@@ -1492,7 +1490,7 @@ function showRepublicKionaRegionModal(regionData) {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        background: linear-gradient(135deg, #000 0%, #50C878 50%, #000 100%);
+        background: linear-gradient(135deg, #000000 0%, #2E8B57 50%, #000000 100%);
         border: 3px solid #C0C0C0;
         border-radius: 15px;
         padding: 30px;
@@ -1526,10 +1524,10 @@ function showRepublicKionaRegionModal(regionData) {
             
             <h2 style="
                 margin: 0 0 20px 0;
-                color: #C0C0C0;
+                color: #ffffff;
                 text-align: center;
                 font-size: 28px;
-                text-shadow: 2px 2px 4px #50C878;
+                text-shadow: 1px 1px 3px #000, 0 0 5px #50C878;
                 font-family: 'Cormorant Unicase', serif;
             ">${regionData.name}</h2>
             
@@ -1648,6 +1646,14 @@ function getRepublicKionaData() {
             trade: "-",
             description: "The Kionan Provinces are an archipelago of privately-owned islands across the continent.",
             position: { top: "32%", left: "56%" }
+        },
+        {
+            name: "New Kiona City",
+            population: "10,831",
+            export: "Technology",
+            trade: "Limited",
+            description: "New Kiona City is the capital of the Kionan Provinces. It is a city of technology, with a population of 10,831. The city is home to the Kionan Government, which is a dictatorship. The city is also home to the Kionan Trade Union, which is a trade union. The city is also home to the Kionan Trade Union, which is a trade union.",
+            position: { top: "44%", left: "46%" }
         },
         {
             name: "The Great Deep Shallows",
@@ -1778,18 +1784,16 @@ function createSouthernIslesRegions() {
     const regions = getSouthernIslesData();
     const mapWrapper = document.getElementById('map-wrapper');
     
-    regions.forEach((regionData, index) => {
-        setTimeout(() => {
-            const pinpoint = createSouthernIslesRegionPinpoint(regionData);
-            mapWrapper.appendChild(pinpoint);
-            
-            if (typeof gsap !== 'undefined') {
-                gsap.fromTo(pinpoint, 
-                    { scale: 0, opacity: 0, y: -50 },
-                    { scale: 1, opacity: 1, y: 0, duration: 0.8, ease: "back.out(1.7)" }
-                );
-            }
-        }, index * 100);
+    regions.forEach((regionData) => {
+        const pinpoint = createSouthernIslesRegionPinpoint(regionData);
+        mapWrapper.appendChild(pinpoint);
+        
+        if (typeof gsap !== 'undefined') {
+            gsap.fromTo(pinpoint, 
+                { scale: 0, opacity: 0, y: -50 },
+                { scale: 1, opacity: 1, y: 0, duration: 0.8, ease: "back.out(1.7)" }
+            );
+        }
     });
 }
 
@@ -2091,18 +2095,16 @@ function createSilmaasEmpireRegions() {
     const regions = getSilmaasEmpireData();
     const mapWrapper = document.getElementById('map-wrapper');
     
-    regions.forEach((regionData, index) => {
-        setTimeout(() => {
-            const pinpoint = createSilmaasRegionPinpoint(regionData);
-            mapWrapper.appendChild(pinpoint);
-            
-            if (typeof gsap !== 'undefined') {
-                gsap.fromTo(pinpoint, 
-                    { scale: 0, opacity: 0, y: -50 },
-                    { scale: 1, opacity: 1, y: 0, duration: 0.8, ease: "back.out(1.7)" }
-                );
-            }
-        }, index * 100);
+    regions.forEach((regionData) => {
+        const pinpoint = createSilmaasRegionPinpoint(regionData);
+        mapWrapper.appendChild(pinpoint);
+        
+        if (typeof gsap !== 'undefined') {
+            gsap.fromTo(pinpoint, 
+                { scale: 0, opacity: 0, y: -50 },
+                { scale: 1, opacity: 1, y: 0, duration: 0.8, ease: "back.out(1.7)" }
+            );
+        }
     });
 }
 
@@ -2676,18 +2678,16 @@ function createLunasKingdomRegions() {
     const regions = getLunasKingdomData();
     const mapWrapper = document.getElementById('map-wrapper');
     
-    regions.forEach((regionData, index) => {
-        setTimeout(() => {
-            const pinpoint = createLunasRegionPinpoint(regionData);
-            mapWrapper.appendChild(pinpoint);
-            
-            if (typeof gsap !== 'undefined') {
-                gsap.fromTo(pinpoint, 
-                    { scale: 0, opacity: 0, y: -50 },
-                    { scale: 1, opacity: 1, y: 0, duration: 0.8, ease: "back.out(1.7)" }
-                );
-            }
-        }, index * 100);
+    regions.forEach((regionData) => {
+        const pinpoint = createLunasRegionPinpoint(regionData);
+        mapWrapper.appendChild(pinpoint);
+
+        if (typeof gsap !== 'undefined') {
+            gsap.fromTo(pinpoint, 
+                { scale: 0, opacity: 0, y: -50 },
+                { scale: 1, opacity: 1, y: 0, duration: 0.8, ease: "back.out(1.7)" }
+            );
+        }
     });
 }
 
@@ -3913,7 +3913,11 @@ function createNewsModal() {
                         <br><p>It is my mission to share insights into their motivations, their inspiration, and their goals. I wish to write characters who feel like they could walk off the page; as any writer can attest, bringing characters to life is one of the most difficult tasks of the creative proces</p>
                         <br><p>I hope to find an audience who resonate with not only my characters, but my process. If you like to read stories with heart, grit, a touch of spice, and consequences, <span style="font-weight: bold; color: var(--gold);">The Collective Libraries of Cendrial</span> is the series for you.</p>
                         <br><p>Happy reading!</p>
+                        <div class="readmore-cta">
+                            <button class="readmore-btn">Read More</button>
+                        </div>
                     </div>
+
                 </div>
 
                <div class="news-content" style="margin-top: 20px;">
@@ -3963,6 +3967,9 @@ function createNewsModal() {
                         <br><p>“Yes, sir!” The assistant blanched and scrambled to put the Composer back into its black box.</p>
                         <br><p>As the lid closed, the Composer was sealed within deafened darkness.</p>
                         <br><p>As the lid closed, the signal ceased.</p>
+                        <div class="readmore-cta">
+                            <button class="readmore1-btn">Read More</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -4006,6 +4013,22 @@ function createNewsModal() {
         });
     }
     
+    // Add click event for the readmore button
+    const readMoreButton = modal.querySelector('.readmore-btn');
+    if (readMoreButton) {
+        readMoreButton.addEventListener('click', () => {
+            window.open('https://www.patreon.com/cendrial', '_blank');
+        });
+    }
+
+    // Add click event for the readmore button
+    const readMore1Button = modal.querySelector('.readmore1-btn');
+    if (readMore1Button) {
+        readMore1Button.addEventListener('click', () => {
+            window.open('https://www.patreon.com/cendrial', '_blank');
+        });
+    }
+
     // Add click events for read more buttons
     const readMoreButtons = modal.querySelectorAll('.read-more-btn');
     readMoreButtons.forEach(button => {
