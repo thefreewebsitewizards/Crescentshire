@@ -3830,7 +3830,7 @@ function createAuthorModal() {
             <div class="author-section">
                 <h3>Kickstarter</h3>
                 <div class="kickstarter-info">
-                <p><h1>COMING SOON!</h1></p>
+                <!-- <p><h1>COMING SOON!</h1></p> -->
                     <p>Your support will allow R.K. Osborn to hire professional editing services, develop stunning book covers, and bring the expansive world of Cendrial to life.</p>
                     <br><p>Every donation will help a debut author’s effort to deliver a compelling series that will capture the imaginations of bibliophiles everywhere.</p>
                     <div class="kickstarter-details">
