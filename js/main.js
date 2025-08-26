@@ -16,7 +16,7 @@ const ORIGINAL_PINPOINTS = [
     },
     {
         classes: 'pinpoint cendrial',
-        dataset: { label: 'Cendrial' },
+        dataset: { realm: 'cendrial', label: 'Cendrial' },
         style: { top: '37%', left: '37%' },
         icon: 'fi-ss-crystal-ball',
         label: 'Cendrial'

@@ -18,12 +18,12 @@ const ORIGINAL_PINPOINTS = [
         label: 'Shop'
     },
     {
-        classes: 'pinpoint cendrial',
-        dataset: { label: 'Cendrial' },
-        style: { top: '37%', left: '37%' },
-        icon: 'fi-ss-crystal-ball',
-        label: 'Cendrial'
-    },
+            classes: 'pinpoint cendrial',
+            dataset: { realm: 'cendrial', label: 'Cendrial' },
+            style: { top: '37%', left: '37%' },
+            icon: 'fi-ss-crystal-ball',
+            label: 'Cendrial'
+        },
     {
         classes: 'pinpoint queensrealm',
         dataset: { realm: 'queensrealm', label: 'Queensrealm' },
@@ -1652,7 +1652,7 @@ function getRepublicKionaData() {
             population: "10,831",
             export: "Technology",
             trade: "Limited",
-            description: "New Kiona City is the capital of the Kionan Provinces. It is a city of technology, with a population of 10,831. The city is home to the Kionan Government, which is a dictatorship. The city is also home to the Kionan Trade Union, which is a trade union. The city is also home to the Kionan Trade Union, which is a trade union.",
+            description: "New Kiona City is a technologically advanced city, offering citizens a plethora of opportunities for entertainment, education, and occupations. The city is patrolled by automatons called Sentries, enforcing a strict nightly curfew. Technology is traded only to a select few; to date, only four known products from New Kiona City exist. Entry into New Kiona City is highly regulated, Sentries only allow those with an invitation into the district. Many wait weeks for approval.",
             position: { top: "44%", left: "46%" }
         },
         {
@@ -3820,9 +3820,9 @@ function createAuthorModal() {
             <div class="author-section">
                 <h3>Project Feather</h3>
                 <div class="project-info">
-                    <p>Project Feather is an ongoing project that encompasses a thirteen book series, prequel trilogy, short story anthology, and beyond. R.K. Osborn has plans to create an expansive Cendriverse.</p>
+                    <p>R.K. Osborn has plans to create an expansive Cendriverse. Project Feather is an ongoing project that encompasses a thirteen book series, prequel trilogy, short story anthology, and beyond.</p>
                     <br><p>Further plans for Project Feather include films, a television series, and several video games.</p>
-                    <br><p>R.K. Osborn’s commitment to adhere authentically to cultural, marginalized voices is a cornerstone of The Crescentshire Publishing Company.</p>
+                    <br><p>Her commitment to bring forth marginalized voices is a cornerstone of the Crescentshire Publishing Company.</p>
                 </div>
             </div>
             
@@ -3831,12 +3831,12 @@ function createAuthorModal() {
                 <h3>Kickstarter</h3>
                 <div class="kickstarter-info">
                 <p><h1>COMING SOON!</h1></p>
-                    <p>Your support will allow R.K. Osborn to hire professional editing services, develop stunning book covers, and bring the expansive world of Cendrial to life. Every donation will help a debut author’s effort to deliver a compelling series that will capture the imaginations of bibliophiles across the globe.</p>
-                    <br><p>Backers will receive exclusive rewards including signed hardcovers, character artwork, personalized bookplates, and early access to Project Feather content.</p>
+                    <p>Your support will allow R.K. Osborn to hire professional editing services, develop stunning book covers, and bring the expansive world of Cendrial to life.</p>
+                    <br><p>Every donation will help a debut author’s effort to deliver a compelling series that will capture the imaginations of bibliophiles everywhere.</p>
                     <div class="kickstarter-details">
-                        <div class="detail"><span>Launch Date:</span> Coming Soon</div>
+                        <div class="detail"><span>Launch Date:</span> September 13, 2025</div>
                     </div>
-                    <button class="kickstarter-notify">Get Notified</button>
+                    <button class="kickstarter-notify">Support Project Feather</button>
                 </div>
             </div>
         </div>
