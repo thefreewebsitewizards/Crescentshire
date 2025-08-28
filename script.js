@@ -2428,7 +2428,7 @@ function showSilmaasEmpireLoadingEffect() {
         z-index: 1000;
         text-align: center;
         color: #C0C0C0;
-        font-family: 'Jim Nightshade', cursive;
+        font-family: 'Vollkorn SC', serif;
         background: rgba(0, 0, 0, 0.9);
         padding: 40px;
         border-radius: 15px;
@@ -2642,14 +2642,14 @@ function applyLunasKingdomTheme() {
         .lunas-theme .pin-label {
             color: #FFD700;
             text-shadow: 2px 2px 4px #000;
-            font-family: 'Jim Nightshade', cursive;
+            font-family: 'Vollkorn SC', serif;
         }
         
         .lunas-modal {
             background: linear-gradient(135deg, #000 0%, #8B0000 50%, #000 100%);
             border: 3px solid #FFD700;
             color: #FFD700;
-            font-family: 'Jim Nightshade', cursive;
+            font-family: 'Vollkorn SC', serif;
         }
         
         .lunas-modal h2 {
@@ -2661,7 +2661,7 @@ function applyLunasKingdomTheme() {
             background: #FFD700;
             color: #000;
             border: 2px solid #8B0000;
-            font-family: 'Jim Nightshade', cursive;
+            font-family: 'Vollkorn SC', serif;
         }
         
         .lunas-modal .close-btn:hover {
@@ -2724,7 +2724,7 @@ function createLunasRegionPinpoint(regionData) {
         border-radius: 4px;
         font-size: 12px;
         white-space: nowrap;
-        font-family: 'Jim Nightshade', cursive;
+        font-family: 'Vollkorn SC', serif;
         text-shadow: 1px 1px 2px #000;
         border: 1px solid #FFD700;
     `;
@@ -2790,7 +2790,7 @@ function showLunasKingdomLoadingEffect() {
         left: 50%;
         transform: translate(-50%, -50%);
         color: #FFD700;
-        font-family: 'Jim Nightshade', cursive;
+        font-family: 'Vollkorn SC', serif;
         font-size: 24px;
         text-align: center;
         background: rgba(0, 0, 0, 0.9);
@@ -3320,7 +3320,7 @@ function showLunasRegionModal(regionData) {
         overflow-y: auto;
         z-index: 2000;
         color: #FFD700;
-        font-family: 'Jim Nightshade', cursive;
+        font-family: 'Vollkorn SC', serif;
         box-shadow: 0 0 50px rgba(255, 215, 0, 0.3);
     `;
     
@@ -3361,7 +3361,7 @@ function showLunasRegionModal(regionData) {
                 padding: 10px 25px;
                 border-radius: 8px;
                 cursor: pointer;
-                font-family: 'Jim Nightshade', cursive;
+                font-family: 'Vollkorn SC', serif;
                 font-size: 16px;
                 font-weight: bold;
                 transition: all 0.3s ease;
