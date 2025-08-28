@@ -2528,3 +2528,21 @@ body {
         opacity: 1 !important;
     }
 }
+
+@media (min-width: 1025px) {
+    .lunas-modal {
+        position: fixed !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        right: auto !important;
+        bottom: auto !important;
+        max-width: 700px !important;
+        padding: 30px !important;
+        font-family: 'Jim Nightshade', cursive;
+    }
+    
+    .lunas-modal h2 {
+        font-size: 28px !important;
+    }
+}
